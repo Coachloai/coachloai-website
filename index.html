@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Coach Loai</title>
+<meta name="description" content="Coach Loai, founder of ReShape Method in Ipswich and Colchester. It's not your willpower, it's a pattern. Take the free 3-minute hormonal assessment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap">
+<style>
+/* Layout: soft wellness-brand page. Light paper, big light-weight two-tone headlines, proof photo up top, rounded bento, deep olive bands with lime pills; the assessment runs inside an olive card. Single committed light look. */
+:root{
+  --paper:#FBFAF6; --card:#F1F0EA; --line:#E4E2D9;
+  --ink:#1E211B; --grey:#8D8F86; --soft:#5E6158;
+  --olive:#2F3A27; --olive-2:#46553A; --sage:#A9B898; --sage-2:#C9D3BB;
+  --lime:#D3EC8C; --lime-ink:#1E2A12; --clay:#D2643C; --clay-soft:#F3DCD0;
+  --on-olive:#F6F7F0; --on-olive-2:rgba(246,247,240,.68);
+  --font:'Inter Tight',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1240px; --r:28px; --r-sm:18px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--paper);scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--font);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;text-wrap:balance}
+h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:1}
+h2{font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.02}
+h3{font-size:1.3rem;line-height:1.15;letter-spacing:-.02em}
+p{margin:0}
+.g{color:var(--grey)} .l{color:var(--lime)} .c{color:var(--clay)}
+:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
+section{padding-block:clamp(64px,9vw,120px)}
+.sub{color:var(--grey);font-size:1.1rem;margin-top:14px;max-width:54ch}
+
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font:600 1rem/1 var(--font);padding:17px 26px;transition:transform .15s,background .15s,opacity .15s;cursor:pointer;border:0}
+.pill:hover{transform:translateY(-1px)}
+.pill:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.pill.lime{background:var(--lime);color:var(--lime-ink)}
+.pill.dark{background:var(--ink);color:var(--paper)}
+.pill.line{background:transparent;color:var(--on-olive);box-shadow:inset 0 0 0 1.5px rgba(246,247,240,.35)}
+
+.ann{background:var(--lime);color:var(--lime-ink);text-align:center;font-size:.9rem;padding-block:9px;padding-top:max(9px,env(safe-area-inset-top,0px))}
+.ann a{font-weight:600;margin-left:8px;background:rgba(30,42,18,.08);padding:4px 10px;border-radius:999px;display:inline-block}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:16px}
+.logo{font-size:1.5rem;font-weight:600;letter-spacing:-.04em}
+.logo span{color:var(--grey);font-weight:400}
+nav .pill{padding:11px 18px;font-size:.92rem}
+
+/* hero */
+.hero{padding-block:8px 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,48px);align-items:center}
+.hero .lede{color:var(--soft);font-size:1.15rem;max-width:44ch;margin-top:18px}
+.hero .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;align-items:center}
+.hero .note{font-size:.9rem;color:var(--grey)}
+.proof{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1;background:var(--olive)}
+.proof img{width:100%;height:100%;object-fit:cover;display:block}
+.chip{position:absolute;background:rgba(251,250,246,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:12px 16px;box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
+.chip b{display:block;font-size:1.5rem;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.chip span{font-size:.82rem;color:var(--soft)}
+.chip.a{left:16px;bottom:16px} .chip.b{right:16px;top:16px}
+.chip .stars{color:var(--clay);font-size:.9rem;letter-spacing:1px}
+
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.tile{position:relative;border-radius:var(--r-sm);overflow:hidden;background:var(--card);display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:88px;padding:18px 20px;transition:transform .2s}
+.tile:hover{transform:translateY(-2px)}
+.tile p{font-size:1.06rem;letter-spacing:-.02em}
+.arrow{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;background:#fff;font-size:1.05rem}
+
+/* olive band */
+.olive{background:var(--olive);color:var(--on-olive);border-radius:clamp(24px,4vw,44px);margin-inline:max(8px,env(safe-area-inset-left,0px))}
+.olive .lead{color:var(--on-olive-2);font-size:1.1rem;max-width:52ch;margin-top:16px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px}
+.bcard{background:var(--olive-2);border-radius:var(--r-sm);padding:24px;display:flex;flex-direction:column;gap:14px}
+.bcard h3{color:var(--on-olive)}
+.row2{display:grid;gap:10px;font-size:.95rem}
+.row2 div{border-radius:12px;padding:12px 14px}
+.row2 .s{background:rgba(0,0,0,.18);color:var(--on-olive-2)}
+.row2 .d{background:rgba(211,236,140,.14);color:var(--on-olive)}
+.row2 b{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:2px}
+.row2 .s b{color:#F2A585} .row2 .d b{color:var(--lime)}
+
+/* results */
+.results{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:40px}
+.results figure{margin:0;border-radius:var(--r-sm);overflow:hidden;background:#fff;border:1px solid var(--line)}
+.results img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.quote{background:var(--card);border-radius:var(--r-sm);padding:22px;display:flex;flex-direction:column;gap:12px}
+.quote .who{color:var(--grey);font-size:.9rem;margin-top:auto}
+.stars{color:var(--clay);letter-spacing:2px}
+.small{font-size:.8rem;color:var(--grey)}
+
+/* teams + steps */
+.teams{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:40px}
+.team{background:var(--card);border-radius:var(--r-sm);padding:22px;display:flex;flex-direction:column;gap:8px;min-height:150px}
+.team .tl{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:600}
+.team p{color:var(--soft);font-size:.92rem;margin-top:auto}
+.team.note{background:var(--clay-soft)}
+.team.note .tl{background:var(--clay);color:#fff}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px}
+.step{border:1px solid var(--line);border-radius:var(--r-sm);padding:26px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.step .n{font-size:.85rem;color:var(--grey)}
+.step p{color:var(--soft)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:var(--r);background:linear-gradient(170deg,var(--sage-2),var(--sage));display:grid;place-items:center;text-align:center;color:var(--olive);font-size:.9rem;padding:20px}
+.about-text{display:flex;flex-direction:column;gap:16px;font-size:1.08rem;color:var(--soft)}
+.about-text h2{color:var(--ink)}
+.ph{background:var(--clay-soft);color:var(--ink);padding:0 4px;border-radius:4px}
+.press{display:flex;flex-wrap:wrap;gap:8px}
+.press span{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.85rem;color:var(--ink)}
+
+/* assessment */
+.quiz-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:start}
+.ticks{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:12px;color:var(--on-olive-2)}
+.ticks li{display:flex;gap:10px;align-items:baseline}
+.ticks li::before{content:"✓";color:var(--lime);font-weight:600}
+.quiz{background:var(--paper);color:var(--ink);border-radius:var(--r);padding:clamp(20px,3vw,34px);min-height:460px;display:flex;flex-direction:column;gap:18px}
+.bar{display:flex;gap:4px}
+.bar i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.bar i.done{background:var(--olive)}
+.bar i.on{background:var(--clay)}
+.qmeta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--grey)}
+.qmeta .cat{color:var(--clay);font-weight:500}
+.quiz h3{font-size:clamp(1.4rem,2.6vw,1.9rem);letter-spacing:-.03em}
+.why{font-size:.9rem;color:var(--grey)}
+.opts{display:grid;gap:10px}
+.opt{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px 18px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--olive)}
+.opt:focus-visible{outline:3px solid var(--clay);outline-offset:2px}
+.opt strong{display:block;font-weight:500;font-size:1.02rem}
+.opt small{display:block;color:var(--grey);font-size:.86rem;margin-top:2px}
+.opt .dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;font-size:.75rem}
+.opt[aria-pressed="true"]{border-color:var(--olive);background:#F4F7EC}
+.opt[aria-pressed="true"] .dot{background:var(--olive);border-color:var(--olive);color:#fff}
+.multi .opt .dot{border-radius:7px}
+.qnav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto}
+.back{all:unset;cursor:pointer;color:var(--soft);font-size:.95rem;padding:10px 4px}
+.back[hidden]{display:none}
+.fields{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.fields input{font:inherit;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);width:100%}
+.fields input:focus{border-color:var(--olive);outline:none;box-shadow:0 0 0 3px rgba(47,58,39,.12)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.84rem;color:var(--soft)}
+.consent input{margin-top:3px}
+.err{color:var(--clay);font-size:.9rem;min-height:1.2em}
+.center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;flex:1}
+.spin{width:44px;height:44px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--olive);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.intro-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.intro-list div{background:var(--card);border-radius:14px;padding:14px;font-size:.9rem;color:var(--soft)}
+.intro-list b{display:block;font-size:1.4rem;color:var(--ink);font-weight:600;letter-spacing:-.03em}
+
+footer{padding-block:40px;color:var(--grey);font-size:.85rem}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+
+@media (max-width:900px){
+  .hero-grid,.about,.quiz-wrap{grid-template-columns:minmax(0,1fr)}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards,.steps,.quotes{grid-template-columns:minmax(0,1fr)}
+  .teams,.results{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portrait{max-width:320px}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:minmax(0,1fr)}
+  .results{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .fields{grid-template-columns:minmax(0,1fr)}
+  .intro-list{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+<link rel="canonical" href="https://www.coachloai.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Coach Loai · It’s not your willpower. It’s a pattern.">
+<meta property="og:description" content="Take the free 3-minute hormonal assessment from Coach Loai, founder of ReShape Method.">
+<meta property="og:url" content="https://www.coachloai.com/">
+<meta property="og:image" content="https://www.coachloai.com/img/proof.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Coach Loai","url":"https://www.coachloai.com/","about":{"@id":"https://www.coachloai.com/coach-loai/#person"}}</script>
+</head>
+<body>
+
+<div class="ann">Free 3-minute hormonal assessment <a href="#assessment">Start now →</a></div>
+<nav><div class="wrap">
+  <a class="logo" href="#top">loai <span>coach</span></a>
+  <a class="pill dark" href="#assessment">Take the assessment</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <h1>It’s not your willpower. <span class="g">It’s a pattern.</span></h1>
+      <p class="lede">The diet that worked at 28 stops working at 45. I help women over 30 find the hormone pattern behind their plateau, and fix it with food, training and sleep.</p>
+      <div class="ctas">
+        <a class="pill dark" href="#assessment">Take the free assessment →</a>
+        <span class="note">14 questions · about 3 minutes</span>
+      </div>
+    </div>
+    <figure class="proof" style="margin:0">
+      <img src="img/proof.jpg" alt="Coach Loai with two ReShape members after their transformations">
+      <div class="chip b"><span class="stars">★★★★★</span><span> 5.0 · 500+ Google reviews</span></div>
+      <div class="chip a"><b>1,200+</b><span>ReShape transformations</span></div>
+    </figure>
+  </div>
+  <div class="bento">
+    <a class="tile" href="#assessment"><p>Stuck on <span class="g">my weight</span></p><span class="arrow">→</span></a>
+    <a class="tile" href="#assessment"><p>Going through <span class="c">perimenopause</span></p><span class="arrow">→</span></a>
+    <a class="tile" href="#assessment"><p>Sleeping <span class="g">badly</span></p><span class="arrow">→</span></a>
+    <a class="tile" href="#assessment"><p>Tired <span class="g">all the time</span></p><span class="arrow">→</span></a>
+  </div>
+</div></header>
+
+<section>
+  <div class="olive"><div class="wrap" style="padding-block:clamp(56px,8vw,104px)">
+    <h2>Not more effort. <span class="l">Different effort.</span></h2>
+    <p class="lead">Most women I meet aren’t lazy. They’re doing too much of the wrong thing. Here’s what I tell every one of them.</p>
+    <div class="cards">
+      <div class="bcard"><h3>Eating less isn’t the answer</h3><div class="row2"><div class="s"><b>Stop</b>Crash diets and 1,200-calorie Mondays.</div><div class="d"><b>Instead</b>Eat enough food, with protein at every meal.</div></div></div>
+      <div class="bcard"><h3>Cardio alone won’t fix it</h3><div class="row2"><div class="s"><b>Stop</b>Only cardio. Tiny pink dumbbells.</div><div class="d"><b>Instead</b>Lift heavy twice a week. Walk every day.</div></div></div>
+      <div class="bcard"><h3>Sleep is part of the plan</h3><div class="row2"><div class="s"><b>Stop</b>Trading sleep to fit it all in.</div><div class="d"><b>Instead</b>Same bedtime every night. No coffee after 12.</div></div></div>
+      <div class="bcard"><h3>Snacking keeps fat locked in</h3><div class="row2"><div class="s"><b>Stop</b>Grazing on cereal bars and smoothies.</div><div class="d"><b>Instead</b>Three meals, protein and veg first, carbs last.</div></div></div>
+      <div class="bcard"><h3>The scale isn’t your judge</h3><div class="row2"><div class="s"><b>Stop</b>Weighing daily and letting it set your mood.</div><div class="d"><b>Instead</b>Weigh 3 mornings a week. Watch the trend.</div></div></div>
+      <div class="bcard"><h3>Coaching isn’t medicine</h3><div class="row2"><div class="s"><b>Stop</b>Guessing at symptoms that need a doctor.</div><div class="d"><b>Instead</b>Blood tests and HRT questions go to your GP.</div></div></div>
+    </div>
+  </div></div>
+</section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Real women. <span class="g">Real ReShape results.</span></h2>
+  <div class="results">
+    <figure><img src="img/w1.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w2.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w3.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w4.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w5.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w6.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w7.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w8.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w9.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w10.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w11.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+    <figure><img src="img/w12.jpg" alt="ReShape member before and after" loading="lazy"></figure>
+  </div>
+  <div class="quotes">
+    <div class="quote"><span class="stars">★★★★★</span><p>“I’m 7 weeks into my ReShape journey. Not only am I 1 stone lighter, I feel alive again.”</p><span class="who">Sara B. · Google review</span></div>
+    <div class="quote"><span class="stars">★★★★★</span><p>“Fantastic supportive coaches, great nutritional plan with variety. I’m feeling stronger and healthier.”</p><span class="who">Kimberley F. · Google review</span></div>
+    <div class="quote"><span class="stars">★★★★★</span><p>“Feeling stronger, more energised and more alive than I have in a long time.”</p><span class="who">Cassie J. · Google review</span></div>
+  </div>
+  <p class="small" style="margin-top:12px">Individual results vary.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>15 hormones. <span class="g">7 teams.</span></h2>
+  <p class="sub">When one team struggles, the others feel it. The assessment maps your symptoms to the team that may be holding you back.</p>
+  <div class="teams">
+    <div class="team"><span class="tl">A</span><h3>Glucose control</h3><p>Insulin, glucagon</p></div>
+    <div class="team"><span class="tl">B</span><h3>Permission to burn fat</h3><p>Leptin, adiponectin, SHBG</p></div>
+    <div class="team"><span class="tl">C</span><h3>Stress &amp; survival</h3><p>Cortisol, adrenaline</p></div>
+    <div class="team"><span class="tl">D</span><h3>Growth &amp; repair</h3><p>Growth hormone, testosterone</p></div>
+    <div class="team"><span class="tl">E</span><h3>Metabolic rate</h3><p>Thyroid</p></div>
+    <div class="team"><span class="tl">F</span><h3>Hunger signals</h3><p>Ghrelin, GLP-1</p></div>
+    <div class="team"><span class="tl">G</span><h3>Your monthly cycle</h3><p>Estrogen, progesterone, aldosterone</p></div>
+    <div class="team note"><span class="tl">!</span><h3>Not a blood test</h3><p>It maps symptom patterns. It shows where to look.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>Three steps. <span class="g">About three minutes to start.</span></h2>
+  <div class="steps">
+    <div class="step"><span class="n">Step 1</span><h3>Take the assessment</h3><p>14 questions about your cycle, sleep, stress, hunger and history.</p></div>
+    <div class="step"><span class="n">Step 2</span><h3>Get your pattern report</h3><p>See which pattern your answers point to, and why what you’ve tried may not have worked.</p></div>
+    <div class="step"><span class="n">Step 3</span><h3>Get the app and talk to a coach</h3><p>Download the ReShape Method app. A coach from my team gets in touch to talk it through. No pressure to join.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap about">
+  <figure class="portrait" style="margin:0;padding:0;overflow:hidden;background:var(--olive)"><img src="img/loai.jpg" alt="Coach Loai in the ReShape studio" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block"></figure>
+  <div class="about-text">
+    <h2>Hi, I’m Loai. <span class="g">I built ReShape Method so women stop fighting their own bodies.</span></h2>
+    <p>I run ReShape Method in Ipswich and Colchester with my team of coaches and nutritionists. More than 1,200 people have changed their bodies with us, and 92% finish the programme.</p>
+    <p>On stage, in the studio and in the app, I teach the same thing: find your pattern, stop what makes it worse, and give your body a reason to change.</p>
+    <p><a href="/coach-loai/" style="text-decoration:underline">More about Loai Omar →</a></p>
+    <div class="press"><span>BBC</span><span>Ipswich Star</span><span>East Anglian Daily Times</span><span>Active Suffolk</span></div>
+  </div>
+</div></section>
+
+<section id="assessment" style="padding-top:0">
+  <div class="olive"><div class="wrap quiz-wrap" style="padding-block:clamp(40px,6vw,88px)">
+    <div>
+      <h2>Your free <span class="l">hormonal assessment</span></h2>
+      <ul class="ticks">
+        <li>14 questions, about 3 minutes</li>
+        <li>Maps your symptoms across 7 hormone teams</li>
+        <li>Your pattern report, sent to you</li>
+        <li>A free chat with a coach, and the ReShape Method app</li>
+      </ul>
+      <p style="color:var(--on-olive-2);font-size:.85rem;margin-top:24px">A screening tool, not a blood test. It maps symptom patterns commonly seen with specific hormones.</p>
+    </div>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </div></div>
+</section>
+
+<footer><div class="wrap">
+  <p>This is coaching, not medical treatment. The assessment maps symptom patterns from your answers; it is not a blood test. See your GP about any new or severe symptoms.</p>
+  <p>© Coach Loai · ReShape Method · Re-Form Sports Fitness Limited</p>
+</div></footer>
+
+<script>
+(function(){
+  var QUESTIONS = [{"id":"Q1","cat":"Life stage","type":"single","text":"Where are you in life right now?","why":"Why we ask: this sets your hormonal baseline — different life stages drive very different patterns.","skipMeno":false,"opts":[["cycling_regularly","Cycling regularly","I have a regular monthly cycle."],["postpartum","Postpartum","Within ~18 months of giving birth."],["perimenopausal","Perimenopausal","Cycle is changing — irregular, heavier, or lighter."],["menopausal","Menopausal","Periods stopped at least 12 months ago."]]},{"id":"Q1b","cat":"Life stage","type":"single","text":"Are you on hormonal birth control or HRT?","why":"Why we ask: hormonal contraception and replacement therapy change how your symptoms read — we need to know which signals are yours vs. the medication.","skipMeno":false,"opts":[["none","No","I'm not on any hormonal medication."],["hbc","Yes — hormonal contraception","Pill, IUD, implant, ring, or similar."],["hrt","Yes — HRT / MHT","Estrogen, progesterone, or testosterone replacement."]]},{"id":"Q2","cat":"Cycle & sex hormones","type":"single","text":"How's your cycle been in the last 6 months?","why":"Why we ask: cycle patterns are one of the strongest signals of estrogen–progesterone balance.","skipMeno":true,"skipValue":"na","opts":[["regular","Regular and predictable","Comes when expected, similar each time."],["heavy_painful","Heavy or painful","Heavy bleeding, cramps, or both."],["light_skipping","Light or skipping months","Lighter than usual, or skipped some months."],["irregular","Irregular and unpredictable","Length and flow keep changing."],["na","Doesn't apply right now","Postmenopausal, on continuous hormones, or no cycle."]]},{"id":"Q3","cat":"Body composition","type":"single","text":"Where does your weight tend to settle most?","why":"Why we ask: where you store fat tells us which hormones are dominant.","skipMeno":false,"opts":[["belly","Around my belly / midsection","Waist and lower belly hold the most."],["hips","Hips, thighs, and bottom","Lower body holds the most."],["even","Evenly across my body","Pretty much everywhere."],["upper","Upper body — face, arms, back","Upper body and arms hold the most."]]},{"id":"Q4","cat":"Cycle & sex hormones","type":"single","text":"PMS or mood the week before your period — how would you describe it?","why":"Why we ask: severity of premenstrual symptoms is one of the strongest signals of progesterone–estrogen balance.","skipMeno":true,"skipValue":"na","opts":[["severe","Severe","Anxiety, irritability, sleep is wrecked. I dread that week."],["moderate","Moderate","Noticeable mood and energy dip. I work around it."],["mild","Mild","A little tired or tender. Nothing major."],["none","I don't notice much","Cycle and mood feel disconnected for me."],["na","Not applicable","Postmenopausal, on continuous hormones, or no cycle."]]},{"id":"Q5","cat":"Sleep & cortisol","type":"single","text":"When you wake at night, it's usually...","why":"Why we ask: wake patterns tell us about cortisol rhythm.","skipMeno":false,"opts":[["sleep_through","I sleep through fine","Out cold most nights."],["two_to_four_am","Between 2 and 4 AM","Wide awake with a busy mind."],["four_to_six_am","Between 4 and 6 AM","Up early, struggling to drop back off."],["cant_fall_asleep","I can't fall asleep","Trouble dropping off in the first place."]]},{"id":"Q6","cat":"Stress signals","type":"single","text":"How would you describe your stress level over the last 6 months?","why":"Why we ask: chronic stress is the single biggest hormonal driver of weight in this age range.","skipMeno":false,"opts":[["high_chronic","High and chronic","Has been for months. Feels relentless."],["moderate","Moderate, fairly constant","A background hum I work around."],["variable","Variable","Comes and goes — some weeks fine, some weeks not."],["low","Low overall","Pretty calm, all things considered."]]},{"id":"Q7","cat":"Blood sugar","type":"single","text":"How's your energy 1–2 hours after a meal?","why":"Why we ask: post-meal energy is a window into insulin function.","skipMeno":false,"opts":[["hard_crash","Hard crash","I need sugar or caffeine to push through."],["slight_dip","A slight dip","A small dip, but I can keep going."],["steady","Steady, no real change","Energy stays even."],["tired_regardless","Tired regardless","No matter what I eat, I feel tired."]]},{"id":"Q8","cat":"Hunger signals","type":"single","text":"When you're hungry, it's usually...","why":"Why we ask: the shape of your hunger tells us how leptin and ghrelin are signalling.","skipMeno":false,"opts":[["constant_never_full","Constant — never feel full","I'm hungry most of the day."],["sudden_surges","Sudden surges","Fine then ravenous out of nowhere."],["predictable","Predictable mealtime hunger","Comes around mealtimes."],["rarely_hungry","I rarely feel hungry","Even when I should be, hunger barely shows up."]]},{"id":"Q9","cat":"Cravings","type":"single","text":"When do sugar or carb cravings hit hardest?","why":"Why we ask: timing of cravings maps directly to specific hormones.","skipMeno":false,"opts":[["afternoon","Mid-afternoon (3–5pm)","The afternoon slump hits and I want sugar."],["evening","Evening, after dinner","Cravings show up after dinner."],["morning","Morning","First thing or late morning."],["around_period","The week before my period","Strong cravings tied to the cycle."],["none","I don't really get cravings","Sugar/carb pulls are not really a thing."]]},{"id":"Q10","cat":"Sex hormones","type":"single","text":"Your libido / sex drive — how is it?","why":"Why we ask: libido changes are one of the clearest signals of testosterone or estrogen shift.","skipMeno":false,"opts":[["significantly_lower","Significantly lower","Lower than it used to be, by a lot."],["some_change","Some change","Different, but not dramatically."],["same","Same as it has always been","Not noticeably different."],["varies_with_cycle","Varies with my cycle","Strong in some weeks, almost nothing in others."]]},{"id":"Q11","cat":"Training response","type":"single","text":"When you exercise consistently for 4+ weeks, what happens?","why":"Why we ask: response to training tells us about testosterone and insulin sensitivity.","skipMeno":false,"opts":[["real_changes","Real changes in shape and strength","My body responds well."],["slow_progress","Slow progress","It comes, just slowly."],["almost_nothing","Almost nothing happens","Despite consistency, the needle barely moves."],["cant_stay_consistent","I can't stay consistent","I can't tell — life keeps interrupting."]]},{"id":"Q12","cat":"Weight history","type":"single","text":"Your weight history... which is closest?","why":"Why we ask: weight history is diagnostic. Plateau patterns differ by hormone.","skipMeno":false,"opts":[["never_lost_what_i_want","I've never lost what I want to lose","It has always been a battle."],["lose_plateau","I lose, then plateau hard","Progress stalls and refuses to move."],["lose_regain","I lose, then regain even more","It always comes back, plus extra."],["recent_issue","It's a recent issue","Last 1–3 years, things changed."]]},{"id":"Q13","cat":"What you've tried","type":"multi","text":"What have you tried? (select all that apply)","why":"Why we ask: helps us avoid suggesting things you've already done.","skipMeno":false,"opts":[["calorie_counting","Calorie counting","MyFitnessPal, Lose It!, or similar."],["keto","Keto / low carb","Strict carb restriction."],["intermittent_fasting","Intermittent fasting","16:8, OMAD, or other windows."],["personal_trainer","1:1 personal training","Sessions in a gym."],["group_fitness","Group fitness / bootcamps","Bootcamps, F45, CrossFit, classes."],["noom_ww","Noom, Weight Watchers, etc.","Slimming World, WW, or similar programmes."],["functional_med","Functional medicine","Hormone testing, gut testing, supplements."],["glp1","GLP-1 medication","Ozempic, Wegovy, Mounjaro, or similar."],["coaching","Other 1:1 coaching","Online or in-person coaching programmes."],["nothing","Honestly, not much yet","I haven't really tried much."]]},{"id":"Q14","cat":"Goals","type":"single","text":"What outcome matters most to you right now?","why":"Why we ask: this anchors your protocol.","skipMeno":false,"opts":[["lose_fat_no_crash","Lose fat without crashing my body","Sustainable, not extreme."],["energy_back","Get my energy back","I want to feel awake again."],["feel_like_myself","Feel like myself again","I haven't, in a while."],["build_muscle","Build strength and muscle","Stronger body, more capable."],["sustainable_habits","Build habits that actually last","No more yo-yo cycles."]]}];
+  var GATE_AFTER = 'Q5';
+  var API = 'https://api.reshape.fit/website/assessments';
+  var RESULT_URL = 'https://reshape.fit/hormonal-assessment/result.html?session_id=';
+  var APP_URL = 'https://reshape.fit/get';
+
+  var st = { session:null, preview:false, answers:{}, i:0, queue:[], gated:false, intent:null, stage:'intro', pending:[] };
+  var root = document.getElementById('quiz');
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function utm(n){ try{ return new URLSearchParams(location.search).get(n); }catch(e){ return null; } }
+
+  function post(action, body){
+    if (st.preview) return Promise.resolve({status:200, body:{}});
+    return fetch(API + (action === 'score' ? '/score' : '/session'), {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(Object.assign(action === 'score' ? {} : {action:action}, body))
+    }).then(function(r){ return r.json().then(function(j){ return {status:r.status, body:j}; }); });
+  }
+
+  function buildQueue(){
+    st.queue = QUESTIONS.filter(function(q){ return !(q.skipMeno && st.answers.Q1 === 'menopausal'); });
+  }
+
+  function bar(){
+    var n = st.queue.length, h = '';
+    for (var k=0;k<n;k++) h += '<i class="'+(k<st.i?'done':k===st.i?'on':'')+'"></i>';
+    return '<div class="bar" aria-hidden="true">'+h+'</div>';
+  }
+
+  function intro(){
+    root.innerHTML = '<div class="center" style="align-items:stretch;text-align:left">'
+      + '<h3>Find the hormone pattern behind your plateau.</h3>'
+      + '<p class="why">Answer honestly. There are no wrong answers, and your answers stay private.</p>'
+      + '<div class="intro-list"><div><b>14</b>questions</div><div><b>3</b>minutes</div><div><b>7</b>hormone teams</div></div>'
+      + '<button class="pill dark" id="go" style="margin-top:8px">Start the assessment →</button>'
+      + '</div>';
+    document.getElementById('go').onclick = start;
+  }
+
+  function start(){
+    root.innerHTML = '<div class="center"><div class="spin"></div><p class="why">Starting…</p></div>';
+    var p = st.preview ? Promise.resolve({status:200, body:{session_id:'preview'}})
+      : post('start', { utm_source: utm('utm_source') || 'coachloai', utm_campaign: utm('utm_campaign') || 'coachloai_site' });
+    p.then(function(r){
+      if (r.status !== 200 || !r.body.session_id) throw 0;
+      st.session = r.body.session_id; buildQueue(); question();
+    }).catch(function(){
+      // Server unreachable (e.g. preview frame): run the questions locally.
+      st.preview = true; st.session = 'preview'; buildQueue(); question();
+    });
+  }
+
+  function question(){
+    var q = st.queue[st.i];
+    if (!q) return st.intent ? finish() : intent();
+    var gateIdx = st.queue.findIndex(function(x){ return x.id === GATE_AFTER; });
+    if (!st.gated && st.i > gateIdx) return gate();
+    var multi = q.type === 'multi';
+    var cur = st.answers[q.id];
+    var picked = multi && cur ? cur.split(',') : [];
+    var html = bar()
+      + '<div class="qmeta"><span class="cat">'+esc(q.cat)+'</span><span>'+(st.i+1)+' of '+st.queue.length+'</span></div>'
+      + '<h3 id="qt">'+esc(q.text)+'</h3>'
+      + '<p class="why">'+esc(q.why || '')+'</p>'
+      + '<div class="opts'+(multi?' multi':'')+'" role="group" aria-labelledby="qt">';
+    q.opts.forEach(function(o){
+      var on = multi ? picked.indexOf(o[0])>-1 : cur === o[0];
+      html += '<button class="opt" type="button" data-v="'+esc(o[0])+'" aria-pressed="'+on+'"><span><strong>'+esc(o[1])+'</strong>'+(o[2]?'<small>'+esc(o[2])+'</small>':'')+'</span><span class="dot">'+(on?'✓':'')+'</span></button>';
+    });
+    html += '</div><div class="qnav"><button class="back" id="bk" type="button"'+(st.i===0?' hidden':'')+'>← Back</button>'
+      + (multi ? '<button class="pill dark" id="nx" type="button"'+(picked.length?'':' disabled')+'>Continue →</button>' : '<span></span>')
+      + '</div>';
+    root.innerHTML = html;
+    var bk = document.getElementById('bk'); if (bk) bk.onclick = function(){ st.i = Math.max(0, st.i-1); question(); };
+    root.querySelectorAll('.opt').forEach(function(b){
+      b.onclick = function(){
+        var v = b.dataset.v;
+        if (!multi){ answer(q, v); return; }
+        if (v === 'nothing') picked = picked.indexOf('nothing')>-1 ? [] : ['nothing'];
+        else { picked = picked.filter(function(x){return x!=='nothing';}); var k = picked.indexOf(v); if (k>-1) picked.splice(k,1); else picked.push(v); }
+        st.answers[q.id] = picked.join(','); question();
+      };
+    });
+    var nx = document.getElementById('nx'); if (nx) nx.onclick = function(){ if (picked.length) answer(q, picked.join(',')); };
+  }
+
+  function answer(q, v){
+    st.answers[q.id] = v;
+    st.pending.push(post('submit_answer', {session_id:st.session, question_id:q.id, answer_value:v}).catch(function(){}));
+    if (q.id === 'Q1'){
+      var before = st.queue.length; buildQueue();
+      // Menopausal: send the skip values for the cycle questions the server still expects.
+      QUESTIONS.forEach(function(x){ if (x.skipMeno && st.answers.Q1 === 'menopausal'){ st.answers[x.id] = x.skipValue; st.pending.push(post('submit_answer',{session_id:st.session,question_id:x.id,answer_value:x.skipValue}).catch(function(){})); } });
+    }
+    st.i++; setTimeout(question, 160);
+  }
+
+  function gate(){
+    root.innerHTML = bar()
+      + '<h3>Where should we send your pattern report?</h3>'
+      + '<p class="why">You’re about halfway. We’ll send your report the moment you finish, and a coach from my team will get in touch about the ReShape Method app.</p>'
+      + '<div class="fields">'
+      + '<input id="g-name" placeholder="First name" autocomplete="given-name" aria-label="First name">'
+      + '<input id="g-age" type="number" inputmode="numeric" min="20" max="99" placeholder="Age" aria-label="Age">'
+      + '<input id="g-email" type="email" placeholder="Email" autocomplete="email" aria-label="Email">'
+      + '<input id="g-phone" type="tel" placeholder="Mobile, e.g. 07700 900000" autocomplete="tel" aria-label="Mobile">'
+      + '</div>'
+      + '<label class="consent"><input type="checkbox" id="g-ok" checked> I’d like ReShape Method to send me my pattern report and follow-up messages by email, phone and WhatsApp. I can opt out at any time.</label>'
+      + '<p class="err" id="g-err"></p>'
+      + '<div class="qnav"><button class="back" id="bk" type="button">← Back</button><button class="pill dark" id="g-go" type="button">Continue →</button></div>'
+      + '<p class="small">We never share your details.</p>';
+    document.getElementById('bk').onclick = function(){ st.i--; question(); };
+    document.getElementById('g-go').onclick = function(){
+      var v = function(id){ return (document.getElementById(id).value || '').trim(); };
+      var name = v('g-name'), email = v('g-email').toLowerCase(), phone = v('g-phone').replace(/[\s\-()]/g,''), age = parseInt(v('g-age'),10);
+      var ok = document.getElementById('g-ok').checked, err = document.getElementById('g-err');
+      if (!name) return err.textContent = 'Add your first name.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return err.textContent = 'Add a valid email address.';
+      if (!/^(\+\d{10,15}|0[1-9]\d{8,10}|44\d{10,11})$/.test(phone)) return err.textContent = 'Add a valid mobile number, e.g. 07700 900000.';
+      if (isNaN(age) || age < 20 || age > 99) return err.textContent = 'Add your age.';
+      if (!ok) return err.textContent = 'Tick the box so we can send your report.';
+      var btn = this; btn.disabled = true; btn.textContent = 'Saving…';
+      post('capture_email', {session_id:st.session, name:name, email:email, phone:phone, age:age, consent_marketing:ok}).then(function(r){
+        if (r.status !== 200){ btn.disabled = false; btn.textContent = 'Continue →'; err.textContent = (r.body && r.body.error) || 'Something went wrong. Please try again.'; return; }
+        st.gated = true; question();
+      }).catch(function(){ btn.disabled = false; btn.textContent = 'Continue →'; err.textContent = 'Network error. Please try again.'; });
+    };
+  }
+
+  function intent(){
+    var opts = [['ready_now','Ready now','I want to start as soon as I find the right fit'],['within_3m','Within 3 months','I want progress this quarter'],['exploring','Just exploring','Gathering information for now'],['not_budgeting','Not budgeting for coaching','Free resources only']];
+    var h = bar() + '<h3 id="it">One last thing. If your report shows a clear pattern, how ready are you to work on it?</h3><div class="opts" role="group" aria-labelledby="it">';
+    opts.forEach(function(o){ h += '<button class="opt" type="button" data-v="'+o[0]+'" aria-pressed="false"><span><strong>'+o[1]+'</strong><small>'+o[2]+'</small></span><span class="dot"></span></button>'; });
+    root.innerHTML = h + '</div><div class="qnav"><button class="back" id="bk" type="button">← Back</button><span></span></div>';
+    document.getElementById('bk').onclick = function(){ st.i--; question(); };
+    root.querySelectorAll('.opt').forEach(function(b){ b.onclick = function(){ st.intent = b.dataset.v; finish(); }; });
+  }
+
+  function finish(){
+    root.innerHTML = '<div class="center"><div class="spin"></div><h3>Reading your pattern…</h3><p class="why">Cross-checking your answers across 7 hormone teams.</p></div>';
+    Promise.all(st.pending).then(function(){
+      return post('score', {session_id:st.session, intent:st.intent});
+    }).then(function(r){
+      if (!st.preview && r.status !== 200) throw 0;
+      done();
+    }).catch(function(){
+      root.innerHTML = '<div class="center"><h3>Something went wrong.</h3><p class="why">Your answers are saved. Please try again.</p><button class="pill dark" id="retry">Try again</button></div>';
+      document.getElementById('retry').onclick = finish;
+    });
+  }
+
+  function done(){
+    root.innerHTML = '<div class="center">'
+      + '<h3>Your pattern is ready.</h3>'
+      + '<p class="why" style="max-width:40ch">Read your report, then get the ReShape Method app. A coach from my team will be in touch to talk it through.</p>'
+      + (st.preview
+          ? '<button class="pill dark" id="see" type="button">See my pattern report →</button>'
+          : '<a class="pill dark" href="'+RESULT_URL+encodeURIComponent(st.session)+'" target="_blank" rel="noopener">See my pattern report →</a>')
+      + '<a class="pill lime" href="'+APP_URL+'" target="_blank" rel="noopener">Get the ReShape Method app</a>'
+      + (st.preview ? '<p class="small">Preview only: the assessment server isn’t reachable from this preview, so nothing was sent.</p>' : '')
+      + '</div>';
+    var see = document.getElementById('see'); if (see) see.onclick = example;
+  }
+
+  // Preview only: a clearly labelled example report. The real report is scored by the server.
+  function example(){
+    var teams = [['A','Glucose control',72],['B','Permission to burn fat',64],['C','Stress & survival',38],['D','Growth & repair',58],['E','Metabolic rate',70],['F','Hunger signals',55],['G','Your monthly cycle',61]];
+    var bars = teams.map(function(t){
+      var low = t[2] < 50;
+      return '<div style="display:grid;grid-template-columns:22px minmax(0,1fr) 40px;gap:10px;align-items:center;font-size:.9rem">'
+        + '<b>'+t[0]+'</b><div><div style="color:var(--soft)">'+t[1]+'</div><div style="height:8px;border-radius:4px;background:var(--line);margin-top:4px"><div style="height:100%;width:'+t[2]+'%;border-radius:4px;background:'+(low?'var(--clay)':'var(--olive)')+'"></div></div></div>'
+        + '<span style="text-align:right;font-variant-numeric:tabular-nums;color:'+(low?'var(--clay)':'var(--soft)')+'">'+t[2]+'</span></div>';
+    }).join('');
+    root.innerHTML = '<p class="small" style="background:var(--clay-soft);color:var(--ink);padding:8px 12px;border-radius:10px">Example report. Your real report is worked out from your answers once the site is live.</p>'
+      + '<div class="qmeta"><span class="cat">Your weakest team</span><span>Team C</span></div>'
+      + '<h3>Stress &amp; survival</h3>'
+      + '<p class="why" style="color:var(--soft)">Your alarm system is going off all day, so the fire crew never goes home. Stress pushes blood sugar up, makes sleep worse and turns hunger up.</p>'
+      + '<div style="display:grid;gap:10px">'+bars+'</div>'
+      + '<div class="row2" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">'
+      + '<div style="background:var(--clay-soft);border-radius:12px;padding:12px 14px;font-size:.92rem"><b style="display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--clay)">Stop</b>Coffee instead of breakfast. Hard classes after a bad night.</div>'
+      + '<div style="background:#EEF4DD;border-radius:12px;padding:12px 14px;font-size:.92rem"><b style="display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--olive)">Instead</b>Eggs or yoghurt for breakfast. Bad night? Go for a walk.</div>'
+      + '</div>'
+      + '<div class="qnav"><button class="back" id="bk" type="button">← Back</button><a class="pill lime" href="'+APP_URL+'" target="_blank" rel="noopener">Get the ReShape Method app</a></div>';
+    document.getElementById('bk').onclick = done;
+  }
+
+  intro();
+})();
+</script>
+
+</body>
+</html>
